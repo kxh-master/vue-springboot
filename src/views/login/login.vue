@@ -80,7 +80,7 @@ export default {
         if (valid) {
           this.loading = true;
           this.$store
-            .dispatch("user/Login", this.loginForm)
+            .dispatch("login/Login", this.loginForm)
             .then(response => {
               this.loading = false;
               let code = response.data.code;

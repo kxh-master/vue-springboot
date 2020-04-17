@@ -1,4 +1,4 @@
-import { login, logout, getInfo,list,add} from '@/api/user' //引入登录 api 接口
+import { login, logout, getInfo,list,add} from '@/api/login' //引入登录 api 接口
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router from '@/router'
 
