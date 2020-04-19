@@ -1,10 +1,10 @@
 <template>
   <div>
     <h1>Welcome!{{msg}}</h1>
-    <!-- <a href="https://www.baidu.com/" @click.prevent="aClick">测试</a>
+    <a href="https://www.baidu.com/" @click.prevent="aClick">测试</a>
 
 
-    <a href="https://www.baidu.com/" @click.prevent="aClick1">测试1</a> -->
+    <a href="https://www.baidu.com/" @click.prevent="aClick1">测试1</a>
   </div>
 </template>
 <script>

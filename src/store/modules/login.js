@@ -123,37 +123,6 @@ const actions ={
 
       resolve()
     })
-  },
-  list({commit}) {
-    return new Promise((resolve, reject) => {
-      list().then(response => {
-        const { data } = response
-
-        if (!data) {
-          reject('Verification failed, please Login again.')
-        }
-        commit('SET_TOKEN', data.token)
-        resolve(data)
-      }).catch(error => {
-        reject(error)
-      })
-    })
-  },
-  add({commit},User) {
-    const { username, password } = User
-    return new Promise((resolve, reject) => {
-      add(username,password).then(response => {
-        const { data } = response
-
-        if (!data) {
-          reject('Verification failed, please Login again.')
-        }
-        commit('SET_TOKEN', data.token)
-        resolve(data)
-      }).catch(error => {
-        reject(error)
-      })
-    })
   }
 }
 
