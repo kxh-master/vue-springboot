@@ -83,11 +83,11 @@ export default {
             .dispatch("login/Login", this.loginForm)
             .then(response => {
               this.loading = false;
-              let code = response.data.code;
+              let code = response.code;
               if (code == 200) {
                 this.$router.push({
                   path: "/success",
-                  query: { data: response.data.data.user.name }
+                  query: { data: response.data.user.name }
                 });
               } else {
                 this.$router.push({

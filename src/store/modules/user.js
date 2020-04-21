@@ -1,6 +1,5 @@
 import {list,add} from '@/api/user' //引入登录 api 接口
-import { getToken, setToken, removeToken } from '@/utils/auth'
-import router from '@/router'
+import { getToken} from '@/utils/auth'
 
 const state = {
   token: getToken(),

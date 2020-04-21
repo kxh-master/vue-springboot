@@ -1,4 +1,4 @@
-import { login, logout, getInfo,list,add} from '@/api/login' //引入登录 api 接口
+import { login, logout, getInfo} from '@/api/login' //引入登录 api 接口
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router from '@/router'
 
@@ -35,8 +35,8 @@ const actions ={
     return new Promise((resolve, reject) => { //封装一个 Promise
       login(username.trim(), password).then(response => { //使用 login 接口进行网络请求
         const { data } = response
-        commit('SET_TOKEN', data.data.token)
-        setToken(data.data.token)
+        commit('SET_TOKEN', data.token)
+        setToken(data.token)
         resolve(response) //将结果封装进 Promise
       }).catch(error => {
         reject(error)
@@ -69,11 +69,10 @@ const actions ={
       })
     })
   },
-
   // user logout
-  logout({ commit, state, dispatch }) {
+  logout({ commit}) {
     return new Promise((resolve, reject) => {
-      logout(state.token).then(() => {
+      logout().then(() => {
         commit('SET_TOKEN', '')
         commit('SET_ROLES', [])
         removeToken()
@@ -81,7 +80,7 @@ const actions ={
 
         // reset visited views and cached views
         // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
-        dispatch('tagsView/delAllViews', null, { root: true })
+        // dispatch('tagsView/delAllViews', null, { root: true })
 
         resolve()
       }).catch(error => {
